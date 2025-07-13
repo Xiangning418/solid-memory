@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巨象航空 - 飞友航空旗下高端品牌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .hero {
+            background-image: url('https://s21.ax1x.com/2025/06/18/pVVPC4g.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #003366;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e6b800;
+        }
+        
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #003366;
+            font-size: 36px;
+        }
+        
+        .fleet {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .aircraft {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .aircraft:hover {
+            transform: translateY(-10px);
+        }
+        
+        .aircraft-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .aircraft-info {
+            padding: 20px;
+        }
+        
+        .aircraft-info h3 {
+            margin-bottom: 10px;
+            color: #003366;
+        }
+        
+        .about {
+            background-color: #003366;
+            color: white;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 0 20px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .service {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+        
+        .service h3 {
+            margin-bottom: 15px;
+            color: #003366;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cccccc;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://s21.ax1x.com/2025/06/18/pVVCOgA.png" alt="巨象航空 Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#fleet">我们的机队</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>探索世界的全新方式</h1>
+            <p>巨象航空，飞友航空旗下高端品牌，为您提供舒适、豪华的飞行体验。我们的宽体机队将带您飞往全球各大目的地。</p>
+        </div>
+    </section>
+    
+    <section id="fleet">
+        <h2 class="section-title">我们的机队</h2>
+        <div class="fleet">
+            <div class="aircraft">
+                <img src="https://s21.ax1x.com/2025/06/18/pVVPC4g.jpg" alt="巨象航空 A380" class="aircraft-img">
+                <div class="aircraft-info">
+                    <h3>空中客车 A380</h3>
+                    <p>我们的旗舰机型，提供无与伦比的舒适度和豪华体验。双层客舱设计，配备最先进的娱乐系统。</p>
+                </div>
+            </div>
+            <div class="aircraft">
+                <img src="https://s21.ax1x.com/2025/06/18/pVVCxDP.jpg" alt="巨象航空 B747" class="aircraft-img">
+                <div class="aircraft-info">
+                    <h3>波音 747</h3>
+                    <p>航空界的传奇机型，提供宽敞的客舱空间和卓越的飞行性能，特别适合长途航线。</p>
+                </div>
+            </div>
+            <div class="aircraft">
+                <img src="https://s21.ax1x.com/2025/07/13/pVlrwpF.jpg" alt="巨象航空 A380" class="aircraft-img">
+                <div class="aircraft-info">
+                    <h3>空中客车 A380</h3>
+                    <p>特别涂装版，为纪念巨象航空成立而设计，提供更加豪华的商务舱体验。</p>
+                </div>
+            </div>
+            <div class="aircraft">
+                <img src="https://s21.ax1x.com/2025/07/13/pVlr0l4.jpg" alt="巨象航空 A320neo" class="aircraft-img">
+                <div class="aircraft-info">
+                    <h3>空中客车 A320neo</h3>
+                    <p>最先进的单通道客机，燃油效率高，噪音低，适合中短程航线运营。</p>
+                </div>
+            </div>
+            <div class="aircraft">
+                <img src="https://s21.ax1x.com/2025/07/13/pVlrB6J.jpg" alt="巨象航空 737" class="aircraft-img">
+                <div class="aircraft-info">
+                    <h3>波音 737</h3>
+                    <p>经典的单通道客机，经过现代化改造，提供舒适的短途飞行体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="section">
+            <h2 class="section-title" style="color: white;">关于巨象航空</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>飞友航空旗下高端品牌</h2>
+                    <p>巨象航空成立于2025年，是飞友航空集团旗下的高端航空品牌，专注于提供豪华、舒适的飞行体验。</p>
+                    <p>我们的名字"巨象"象征着力量、稳定和尊贵，这正是我们希望在航空旅行中为乘客提供的品质。</p>
+                    <p>凭借现代化的机队和专业的服务团队，巨象航空已成为国际航空市场上备受尊敬的品牌之一。</p>
+                    <p>我们不断投资于新技术和员工培训，以确保每位乘客都能享受到最高标准的服务。</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://s21.ax1x.com/2025/06/18/pVVPC4g.jpg" alt="巨象航空飞机">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2 class="section-title">我们的服务</h2>
+        <div class="services">
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <h3>豪华座椅</h3>
+                <p>所有舱位均配备全平躺座椅，头等舱更提供独立套房，让您的飞行如在家般舒适。</p>
+            </div>
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>精致餐饮</h3>
+                <p>由米其林星级厨师设计的机上菜单，搭配精选葡萄酒，让您的味蕾也能享受旅程。</p>
+            </div>
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>娱乐系统</h3>
+                <p>业界领先的4K娱乐系统，提供数百部电影、电视节目和音乐专辑，让飞行不再无聊。</p>
+            </div>
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>高速WiFi</h3>
+                <p>全机队配备高速卫星WiFi，让您在万米高空也能保持连接，工作娱乐两不误。</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <img src="https://s21.ax1x.com/2025/06/18/pVVCOgA.png" alt="巨象航空 Logo" class="footer-logo">
+                <p>巨象航空，飞友航空旗下高端品牌，致力于提供卓越的飞行体验。</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#fleet">我们的机队</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">服务</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 巨象航空(JXAirlines) - 飞友航空旗下品牌. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>
